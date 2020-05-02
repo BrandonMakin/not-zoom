@@ -8,10 +8,11 @@ let peerConnection = new RTCPeerConnection(RTCConfiguration);
 
 ///////////////////////////////////////////////////////////////////////
 /// Get user video and audio
+const remoteVideo = document.querySelector('#otherVideo');
 
 function handleSuccess(stream) {
   // show your own video on your screen
-  const video = document.querySelector('video');
+  const video = document.querySelector('#myVideo');
   video.srcObject = stream;
   // add the video to the peerConnection
   stream.getTracks().forEach(track => {
@@ -104,6 +105,9 @@ peerConnection.onnegotiationneeded = async function() {
 //---------------------------------------------------------------------
 peerConnection.ontrack = function(event) {
   // do something here to show the video
+  remoteVideo.srcObject = event.streams[0];
+
+  // log tracks
   console.log("----TRACK----")
   console.log(event)
   console.log("-------------")

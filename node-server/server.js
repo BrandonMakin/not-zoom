@@ -15,7 +15,7 @@ wss.on('connection', function connection(ws) {
 
   ws.on('message', function incoming(message) {
     try {
-      console.log(message);
+      // console.log(message);
       // send the message to each client
       clients.forEach((client) => {
         // don't send a message back to the client that originally sent it
