@@ -39,7 +39,7 @@ document.querySelector('#start').addEventListener('click', e => init(e));
 // set up the WebSocket to talk to the signalling server
 //---------------------------------------------------------------------
 let prefix = "ws://"
-let url = "ec2-35-164-249-232.us-west-2.compute.amazonaws.com";
+let url = "ec2-50-18-20-109.us-west-1.compute.amazonaws.com";
 let port = 1337;
 let socket = new WebSocket(prefix + url + ":" + port);
 
